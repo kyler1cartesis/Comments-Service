@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('Comments', function (Blueprint $table) {
             $table->id("Id");
-            $table->foreignUlid("UserId");
-            $table->foreignUlid("StepId");
+            $table->foreignUuid("UserId");
+            $table->foreignUuid("StepId");
             $table->text("Text");
             $table->unsignedMediumInteger("LikesNumber")->default(0);
             $table->foreignIdFor(Comments::class, "ParentId")->nullable();

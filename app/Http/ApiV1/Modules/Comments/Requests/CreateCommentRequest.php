@@ -9,8 +9,8 @@ class CreateCommentRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['required', 'integer'],
-            'step_id' => ['required', 'integer'],
+            'user_id' => ['required', 'uuid'],
+            'step_id' => ['required', 'uuid'],
             'text' => ['required', 'string'],
             'parent_id' => ['nullable', 'integer'],
         ];

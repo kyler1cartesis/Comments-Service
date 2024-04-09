@@ -1,31 +1,31 @@
 openapi: 3.0.3
 info:
-  title: Ensi Backend Skeleton (Replace me)
-  contact:
-    name: API Support
-    url: https://ensi.tech/contacts
-    email: mail@greensight.ru
+  title: Comments Service REST API
+  # contact:
+  #   name: API Support
+  #   url: https://ensi.tech/contacts
+  #   email: mail@greensight.ru
   version: 1.0.0
+  license: "AGPLv3"
   description: Ensi Backend Skeleton Description (Replace me)
 servers:
   - url: /api/v1
 tags:
-  - name: examples
+  - name: comments
     description: Тэг-пример
 paths:
-  /examples/{id}:
+  /comments/{id}:
     get:
       tags:
-        - examples
-      operationId: getExample
-      x-lg-handler: 'App\Http\ApiV1\Modules\Foos\Controllers\FoosController@get'
-      x-lg-route-name: 'getExample'
+        - comments
+      operationId: getByStep
+      x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentController@getByStep'
+      x-lg-route-name: 'getByStep'
       x-lg-skip-request-generation: true
-      summary: Получение объекта типа Example
-      description: Получение объекта типа Example
+      summary: Получение объектов типа Comment по step_id
+      # description: Получение объекта типа Example
       parameters:
         - $ref: '#/components/parameters/PathId'
-        - $ref: '#/components/parameters/QueryInclude'
       responses:
         #"200":
           #description: Успешный ответ

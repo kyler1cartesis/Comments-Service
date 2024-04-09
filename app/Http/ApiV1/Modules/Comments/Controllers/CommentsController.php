@@ -14,10 +14,11 @@ use App\Domain\Comments\Models\Comments;
 
 class CommentsController extends Controller
 {
-    public function getByStep(GetCommentsRequest $request)
+    public function getByStepId(GetCommentsRequest $request)
     {
-        $comments = Comments::where('StepId', $request->StepId)->get();
-        return $comments;
+        $comments = Comments::where('StepId', $request->input('step_id'))->get();
+        // echo $request->input('step_id');
+        return ['data' => $comments];
     }
 
     public function create(CreateCommentRequest $request): CommentResource
@@ -50,6 +51,6 @@ class CommentsController extends Controller
         if (!$comment)
             return response(null)->json(['errors' => ['Comment to delete not found!']], 404);
         $comment->delete();
-        return response()->json(['data' => 'null'], 204);
+        return response()->json(['data' => null], 204);
     }
 }

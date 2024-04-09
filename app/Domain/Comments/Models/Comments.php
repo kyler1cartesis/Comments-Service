@@ -30,4 +30,5 @@ class Comments extends Model
         'LikesNumber',
         'ParentId'
     ];
+    protected $guarded =[];
 }
