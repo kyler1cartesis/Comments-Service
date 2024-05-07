@@ -9,7 +9,7 @@ class GetCommentsRequest extends BaseFormRequest
     public function rules(): array
     {
         return [
-            // 'step_id' => ['required', 'integer'],
+            'step_id' => ['required', 'uuid'],
         ];
     }
 }

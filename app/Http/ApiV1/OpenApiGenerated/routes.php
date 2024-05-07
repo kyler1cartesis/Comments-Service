@@ -5,7 +5,10 @@
  * Do NOT edit it manually. Run `php artisan openapi:generate-server`.
  */
 
-use App\Http\ApiV1\Modules\Foos\Controllers\FoosController;
+use App\Http\ApiV1\Modules\Comments\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('examples/{id}', [FoosController::class, 'get'])->name('getExample');
+Route::get('comments', [CommentsController::class, 'getByStepId'])->name('getByStepId');
+Route::post('comments', [CommentsController::class, 'create']);
+Route::delete('comments', [CommentsController::class, 'delete']);
+Route::patch('comments', [CommentsController::class, 'update']);

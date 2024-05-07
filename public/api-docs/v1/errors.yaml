@@ -4,6 +4,12 @@ Error:
     code:
       description: Строковый код ошибки
       type: string
+      # enum:
+      #   - "400"
+      #   - "401"
+      #   - "403"
+      #   - "404"
+      #   - "500"
     message:
       description: Описание ошибки
       type: string
@@ -30,5 +36,5 @@ ErrorResponse:
       type: object
       description: Объект с мета-информацией
   required:
-    - data
+    # - data
     - errors

@@ -8,6 +8,16 @@ PathId:
   description: Числовой id
   example: 1
 
+QueryId:
+  in: query
+  name: id
+  required: true
+  schema:
+    type: integer
+    minimum: 1
+  description: Числовой id
+  example: 1
+
 QueryInclude:
   in: query
   name: include

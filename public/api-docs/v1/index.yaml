@@ -1,48 +1,30 @@
 openapi: 3.0.3
 info:
-  title: Comments Service REST API
-  # contact:
-  #   name: API Support
-  #   url: https://ensi.tech/contacts
-  #   email: mail@greensight.ru
+  title: Comments Service
   version: 1.0.0
-  license: "AGPLv3"
-  description: Ensi Backend Skeleton Description (Replace me)
+  license:
+    name: AGPLv3
+  description: Comments Service REST API
+  contact: 
+    name: your mom
+
 servers:
   - url: /api/v1
 tags:
   - name: comments
-    description: Тэг-пример
+
 paths:
-  /comments/{id}:
-    get:
-      tags:
-        - comments
-      operationId: getByStep
-      x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentController@getByStep'
-      x-lg-route-name: 'getByStep'
-      x-lg-skip-request-generation: true
-      summary: Получение объектов типа Comment по step_id
-      # description: Получение объекта типа Example
-      parameters:
-        - $ref: '#/components/parameters/PathId'
-      responses:
-        #"200":
-          #description: Успешный ответ
-          # content:
-          #  application/json:
-          #    schema:
-          #      $ref: './customers.yaml#/CustomerResponse'
-        "404":
-          $ref: '#/components/responses/NotFound'
-        "500":
-          $ref: '#/components/responses/ServerError'
+  /comments:
+    $ref: './comments/paths.yaml#/Comments'
+
 components:
   parameters:
     QueryInclude:
       $ref: './common_parameters.yaml#/QueryInclude'
     PathId:
       $ref: './common_parameters.yaml#/PathId'
+    QueryId:
+      $ref: './common_parameters.yaml#/QueryId'
   schemas:
     EmptyDataResponse:
       type: object

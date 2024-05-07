@@ -5,7 +5,7 @@ namespace Database\Factories\Domain\Comments\Models;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domain\Comments\Models\Comments>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domain\Comments\Models\Comment>
  */
 class CommentsFactory extends Factory
 {

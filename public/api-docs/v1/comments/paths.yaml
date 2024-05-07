@@ -1,0 +1,97 @@
+Comments:
+  get:
+    tags:
+      - comments
+    operationId: getByStepId
+    x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentsController@getByStepId'
+    x-lg-route-name: 'getByStepId'
+    summary: Получение объектов типа Comment по step_id
+    description: Получение объектов типа Comment по step_id
+    parameters:
+      - name: step_id
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: ID страницы
+    responses:
+      '200':
+        description: Успешный ответ
+        content:
+          application/json:
+            schema:
+              $ref: './comments.yaml#/CommentsResponse'
+      # '404':
+      #   $ref: '../index.yaml#/components/responses/NotFound'
+      '500':
+        $ref: '../index.yaml#/components/responses/ServerError'
+
+  post:
+    tags:
+      - comments
+    operationId: createComment
+    summary: Запрос на создание комментария
+    description: Запрос на создание комментария
+    x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentsController@create'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: './comments.yaml#/CreateCommentRequest'
+    responses:
+      '201':
+        description: Выполнено успешно
+        content:
+          application/json:
+            schema:
+              $ref: './comments.yaml#/CommentResponse'
+      '400':
+        $ref: '../index.yaml#/components/responses/BadRequest'
+      '500':
+        $ref: '../index.yaml#/components/responses/ServerError'
+
+  delete:
+      tags:
+        - comments
+      operationId: deleteComment
+      x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentsController@delete'
+      summary: Удаление комментария
+      description: Удаление комментария
+      parameters:
+        - $ref: '../index.yaml#/components/parameters/QueryId'
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+           application/json:
+             schema:
+               $ref: '../index.yaml#/components/schemas/EmptyDataResponse'
+        '500':
+          $ref: '../index.yaml#/components/responses/ServerError'
+
+  patch:
+    tags:
+      - comments
+    operationId: updateComment
+    summary: Запрос на изменение комментария
+    description: Запрос на изменение комментария
+    x-lg-handler: 'App\Http\ApiV1\Modules\Comments\Controllers\CommentsController@update'
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: './comments.yaml#/UpdateCommentRequest'
+    responses:
+      "201":
+        description: Выполнено успешно
+        content:
+          application/json:
+            schema:
+              $ref: './comments.yaml#/CommentResponse'
+      "400":
+        $ref: '../index.yaml#/components/responses/BadRequest'
+      "500":
+        $ref: '../index.yaml#/components/responses/ServerError'
